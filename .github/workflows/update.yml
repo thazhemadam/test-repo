@@ -20,15 +20,17 @@ jobs:
           git config --global user.name "bot"
           git config --global user.email "bot@bot.bot"
 
-
           git fetch origin ${{ env.CHILD_BRANCH }}
-          git branch --force ${{ env.CHILD_BRANCH }} FETCH_HEAD
+          git checkout -B ${{ env.CHILD_BRANCH }} origin/${{ env.CHILD_BRANCH }}
           git --version
 
           echo "DEBUGGING GIT LOGS!"
           git log -3
+          echo ""
+          echo ""
+          echo ""
 
-          git rebase ${{ env.BASE_BRANCH }} ${{ env.CHILD_BRANCH }}
+          git rebase --rebase-merges origin/${{ env.BASE_BRANCH }}
 
           echo "DEBUGGING GIT LOGS!"
           git log -3
