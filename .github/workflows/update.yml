@@ -12,6 +12,11 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b" # v4.1.4
 
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
+
       - name: "Update child branch to latest main branch"
         env:
           CHILD_BRANCH: "test"
@@ -35,7 +40,3 @@ jobs:
           echo "DEBUGGING GIT LOGS!"
           git log -3
           # git push origin "${{ env.CHILD_BRANCH }}"
-
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-  
