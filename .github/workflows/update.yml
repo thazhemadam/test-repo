@@ -26,6 +26,8 @@ jobs:
           git --version
 
           echo "DEBUGGING GIT LOGS!"
+          git log -3
+
           git rebase ${{ env.BASE_BRANCH }} ${{ env.CHILD_BRANCH }}
 
           echo "DEBUGGING GIT LOGS!"
