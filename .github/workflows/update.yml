@@ -13,8 +13,8 @@ jobs:
         uses: "actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b" # v4.1.4
 
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
 
 
       - name: "Update child branch to latest main branch"
@@ -25,6 +25,7 @@ jobs:
           git config --global user.name "bot"
           git config --global user.email "bot@bot.bot"
 
+          git fetch origin main
           git fetch origin test
           git checkout -B test origin/test
           git --version
@@ -35,7 +36,7 @@ jobs:
           echo ""
           echo ""
 
-          git rebase origin/main
+          git rebase --rebase-merges origin/main
 
           echo "DEBUGGING GIT LOGS!"
           git log -3
