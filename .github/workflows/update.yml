@@ -42,4 +42,4 @@ jobs:
 
           echo "DEBUGGING GIT LOGS!"
           git log -3
-          # git push origin main
+          git push origin test
